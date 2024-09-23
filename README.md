@@ -62,6 +62,8 @@ Takes an array of code points and writes the UTF-8 encoded string to `str`.
 
 ### `uint32_t capitlize_ascii(char* str)`
 
+Takes an array of code points and *changes* the array so that any ASCII lowercase characters `a`-`z` are changed to their uppercase versions. Leaves all other characters unchanged.
+
 ## UTF-8 Analyzer
 
 You'll also write a program that reads (purportedly) UTF-8 input and prints out some information about it.
@@ -80,6 +82,7 @@ Number of bytes in the first 6 code points: 10
 Length in bytes: FILL
 Animal emojis: 🐩
 Bytes per code point: 1 1 1 4 FILL ....
+Uppercased ASCII:
 ```
 
 You can also test the contents of _files_ by using the `<` operator:
@@ -96,6 +99,7 @@ Valid UTF-8: true
 Valid ASCII: false
 Animal emojis: FILL
 Bytes per code point: FILL
+Uppercased ASCII:
 ```
 
 ## Testing
