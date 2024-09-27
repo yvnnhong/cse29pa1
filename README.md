@@ -59,7 +59,7 @@ Takes a UTF-8 encoded string and an index, and returns the code point at that in
 
 Takes a UTF-8 encoded string and start and end indices, and writes the substring between those indices to `result`, and includes a null terminator. Assumes that `result` has at least `utf8bytes_range(str, start, end) + 1` bytes of space available.
 
-### `void code_points_to_utf8(unsigned uint32_t* code_points, uint32_t num_code_points, char* str)`
+### `void code_points_to_utf8(uint32_t* code_points, uint32_t num_code_points, char* str)`
 
 Takes an array of code points and writes the UTF-8 encoded string to `str`.
 
