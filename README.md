@@ -24,7 +24,10 @@ Takes a UTF-8 encoded string and returns the number of UTF-8 code points it repr
 
 Takes a UTF-8 encoded string and start and end indices, and returns the number of _bytes_ taken up by the unicode code points in that range of indices (`start` inclusive, `end` exclusive. (This is not the same as the number of code points!)
 
-Returns -1 if `start` is below 0, `end` is greater than the length of the string, or `start` is after `end`.
+Returns -1 if any of the following three conditions is true
+- `start` is greater than or equal to the length of the string
+- `end` is greater than the length of the string
+- `start` is after `end`
 
 Examples:
 
@@ -56,13 +59,13 @@ Takes a UTF-8 encoded string and an index, and returns the code point at that in
 
 Takes a UTF-8 encoded string and start and end indices, and writes the substring between those indices to `result`, and includes a null terminator. Assumes that `result` has at least `utf8bytes_range(str, start, end) + 1` bytes of space available.
 
-### `void code_points_to_utf8(unsigned uint32_t* code_points, char* str)`
+### `void code_points_to_utf8(unsigned uint32_t* code_points, uint32_t num_code_points, char* str)`
 
 Takes an array of code points and writes the UTF-8 encoded string to `str`.
 
 ### `uint32_t capitlize_ascii(char* str)`
 
-Takes an array of code points and *changes* the array so that any ASCII lowercase characters `a`-`z` are changed to their uppercase versions. Leaves all other characters unchanged.
+Takes a UTF-8 encoded string and *changes* it in-place so that any ASCII lowercase characters `a`-`z` are changed to their uppercase versions. Leaves all other characters unchanged. It returns the number of characters updated from lowercase to uppercase.
 
 ## UTF-8 Analyzer
 
