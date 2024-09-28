@@ -63,7 +63,7 @@ Takes a UTF-8 encoded string and start and end indices, and writes the substring
 
 Takes an array of code points and writes the UTF-8 encoded string to `str`.
 
-### `uint32_t capitlize_ascii(char* str)`
+### `uint32_t capitalize_ascii(char* str)`
 
 Takes a UTF-8 encoded string and *changes* it in-place so that any ASCII lowercase characters `a`-`z` are changed to their uppercase versions. Leaves all other characters unchanged. It returns the number of characters updated from lowercase to uppercase.
 
@@ -81,7 +81,7 @@ Valid ASCII: false
 Number of code points: FILL
 Code points as decimal numbers: 
 Substring of the first 6 code points: "My 🐩’s"
-Number of bytes in the first 6 code points: 10
+Number of bytes in the first 6 code points: 11
 Length in bytes: FILL
 Animal emojis: 🐩
 Bytes per code point: 1 1 1 4 FILL ....
@@ -95,11 +95,13 @@ $ cat utf8test.txt
 FILL
 $ ./utf8analyzer < utf8test.txt
 Enter a UTF-8 encoded string:
-Number of code points: FILL
-Substring up to the first ASCII space: FILL
-Length in bytes: FILL
 Valid UTF-8: true
 Valid ASCII: false
+Number of code points: FILL
+Code points as decimal numbers: 
+Substring of the first 6 code points: FILL
+Number of bytes in the first 6 code points: FILL
+Length in bytes: FILL
 Animal emojis: FILL
 Bytes per code point: FILL
 Uppercased ASCII:
