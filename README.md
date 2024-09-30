@@ -72,8 +72,8 @@ Takes a UTF-8 encoded string and start(inclusive) and end(exclusive) codepoint i
 
 Example:
 ```
-  utf8_substring(":crab::guide_dog::guide_dog::crab::crab::guide_dog::guide_dog:", 3, 7, result) // these emoji are 4 bytes long
-  result == :crab::crab::guide_dog::guide_dog:
+  utf8_substring("🦀🦮🦮🦀🦀🦮🦮", 3, 7, result) // these emoji are 4 bytes long
+  result == 🦀🦀🦮🦮
 ```
 
 ## UTF-8 Analyzer
