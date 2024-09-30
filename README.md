@@ -78,7 +78,7 @@ Example:
 
 ## UTF-8 Analyzer
 
-You'll also write a program that reads (purportedly) UTF-8 input and prints out some information about it.
+You'll also write a program that reads UTF-8 input and prints out some information about it.
 
 Here's what a sample run of your program should look like:
 
