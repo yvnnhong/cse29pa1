@@ -24,7 +24,7 @@ Takes a UTF-8 encoded string and returns if it is valid ASCII (e.g. all bytes ar
 
 Takes a UTF-8 encoded string and *changes* it in-place so that any ASCII lowercase characters `a`-`z` are changed to their uppercase versions. Leaves all other characters unchanged. It returns the number of characters updated from lowercase to uppercase.
 
-### `uint32_t codepoint_index_to_byte_index(char str[], uint32_t codepoint_index)
+### `uint32_t codepoint_index_to_byte_index(char str[], uint32_t codepoint_index)`
 
 Given an utf8 encoded string, and a codepoint index, return the byte index in the string where the Unicode character at the given code point index starts. 
 
