@@ -68,7 +68,7 @@ For simplicity for this question, we will define that that the â€œanimal emojiiâ
 
 ### `void utf8_substring(char str[], uint32_t start, uint32_t end, char result[])`
 
-Takes a UTF-8 encoded string and start(inclusive) and end(exclusive) codepoint indices, and writes the substring between those indices to `result`, and includes a null terminator. Assumes that `result` has sufficient bytes of space available(hint: the size of the result should be known when use one of the above function).
+Takes a UTF-8 encoded string and start(inclusive) and end(exclusive) codepoint indices, and writes the substring between those indices to `result`, and includes a null terminator. Assumes that `result` has sufficient bytes of space available. (Hint: `result` will be created beforehand with a given size and passed as input here. Can any of the above functions be used to determine what the size of `result` should be?)
 
 Example:
 ```
