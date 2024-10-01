@@ -26,7 +26,7 @@ Takes a UTF-8 encoded string and *changes* it in-place so that any ASCII lowerca
 
 ### `uint32_t codepoint_index_to_byte_index(char str[], uint32_t codepoint_index)`
 
-Given an utf8 encoded string, and a codepoint index, return the byte index in the string where the Unicode character at the given code point index starts. 
+Given a UTF-8 encoded string, and a codepoint index, return the byte index in the string where the Unicode character at the given codepoint index starts. 
 
 Example: 
 ```
@@ -35,25 +35,25 @@ Example:
 
 ### `uint32_t bytes_of_codepoint(char str[], uint32_t codepoint_index)`
 
-Given an utf8 encoded string and codepoint_index, return the number of bytes of that codepoint.
+Given a UTF-8 encoded string and a codepoint index, return the number of bytes that form the codepoint at the given index.
 
 Example:
 ```
-  bytes_of_codepoint("Joséph", 3) == 2;  // é is 2 bytes codepoint
+  bytes_of_codepoint("Joséph", 3) == 2;  // é, at codepoint_index = 3, is encoded in 2 bytes
 ```
 
 ### `uint32_t codepoint_at(char str[], uint32_t codepoint_index)`
 
-Takes a UTF-8 encoded string and a codepoint index, and returns the codepoint at that index.
+Takes a UTF-8 encoded string and a codepoint index, and returns a decimal representing the codepoint at that index.
 
 Example:
 ```
-  codepoint_at("Joséph", 4) == 'p'  // 'p' is the 4th codepoint
+  codepoint_at("Joséph", 4) == 112  // 'p' is the 4th codepoint whose decimal representation is 112
 ```
 
 ### `uint32_t utf8_code_points(char str[])`
 
-Takes a UTF-8 encoded string and returns the number of UTF-8 code points it represents.
+Takes a UTF-8 encoded string and returns the number of UTF-8 codepoints it represents.
 
 Example:
 ```
@@ -86,11 +86,11 @@ Here's what a sample run of your program should look like:
 $ ./utf8analyzer
 Enter a UTF-8 encoded string: My 🐩’s name is Erdős.
 Valid ASCII: false
-Uppercased ASCII:
-Length in bytes: FILL
-Number of code points: FILL
-Bytes per code point: 1 1 1 4 FILL ....
-Code points as decimal numbers:
+Uppercased ASCII: "MY 🐩’S NAME IS ERDőS."
+Length in bytes: 27
+Number of code points: 21
+Bytes per code point: 1 1 1 4 3 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 1
+Code points as decimal numbers: 77 121 32 128041 8217 115 32 110 97 109 101 32 105 115 32 69 114 100 337 115 46
 Animal emojis: 🐩
 Substring of the first 6 code points: "My 🐩’s"
 ```
@@ -99,23 +99,28 @@ You can also test the contents of _files_ by using the `<` operator:
 
 ```
 $ cat utf8test.txt
-FILL
+My 🐩’s name is Erdős.
 $ ./utf8analyzer < utf8test.txt
 Enter a UTF-8 encoded string: 
 Valid ASCII: false
-Uppercased ASCII:
-Length in bytes: FILL
-Number of code points: FILL
-Bytes per code point: 1 1 1 4 FILL ....
-Code points as decimal numbers:
+Uppercased ASCII: "MY 🐩’S NAME IS ERDőS."
+Length in bytes: 27
+Number of code points: 21
+Bytes per code point: 1 1 1 4 3 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 1
+Code points as decimal numbers: 77 121 32 128041 8217 115 32 110 97 109 101 32 105 115 32 69 114 100 337 115 46
 Animal emojis: 🐩
 Substring of the first 6 code points: "My 🐩’s"
 ```
 
 ## Testing
-We provide 2 basic tests in the `tests` folder to start with, which will only check if your program output contains each line in .expect file, you can use the provided bash script to run the tests in tests folder `./test_script utfanalyzer`, you need to change the permission to be executable before run `test_script` script with this command `chmod u+x test_script` . Then it will print out result in your terminal. 
+We provide 2 basic tests in the `tests` folder - which contain simple tests for detecting if there are errors in your code while identifies valid ASCII and converting ASCII lowercase to uppercase characters. We have provided a test bash file that will only check if your program output contains each line in the .expect file. You can use the following command to run the tests (You may need to change the permission of the `test_script` file to be executable with the command `chmod u+x test_script`.):
+```
+gcc *.c -o utfanalyzer // compiles your C code into an executable called utfanalyzer
+./test_script utfanalyzer
+```
+Then it will print out result in your terminal. 
 
-Here are some ideas for tests you should write. They aren't necessarily comprehensive (you should design your own!) but they should get you started. For each of these kinds of strings, you should check how UTF-8 analyzer handles them:
+Here are some other ideas for tests you should write. They aren't necessarily comprehensive (you should design your own!) but they should get you started. For each of these kinds of strings, you should check how UTF-8 analyzer handles them:
 
 - Strings with a single UTF-8 character that is 1, 2, 3, 4 bytes
 - Strings with two UTF-8 characters in all combinations of 1/2/3/4 bytes. (e.g. `"aa"`, `"aá"`, `"áa"`, `"áá"`, and so on)
