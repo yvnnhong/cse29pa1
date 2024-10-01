@@ -113,7 +113,7 @@ Substring of the first 6 code points: "My 🐩’s"
 ```
 
 ## Testing
-We provide 2 basic tests in the `tests` folder - which contain simple tests for detecting if there are errors in your code while identifies valid ASCII and converting ASCII lowercase to uppercase characters. We have provided a test bash file that will only check if your program output contains each line in the .expect file. You can use the following command to run the tests (You may need to change the permission of the `test_script` file to be executable with the command `chmod u+x test_script`.):
+We provide 2 basic tests in the `tests` folder - which contain simple tests for detecting if there are errors in your code while identifying valid ASCII and converting ASCII lowercase to uppercase characters. We have provided a test bash file that checks if your program output contains each line in the .expect file. You can use the following commands to run the tests (You may need to change the permission of the `test_script` file to be executable with the command `chmod u+x test_script`.):
 ```
 gcc *.c -o utfanalyzer // compiles your C code into an executable called utfanalyzer
 ./test_script utfanalyzer
