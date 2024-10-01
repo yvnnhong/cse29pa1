@@ -20,11 +20,11 @@ To that end, you'll write several functions that work with UTF-8 encoded text, a
 
 Takes a UTF-8 encoded string and returns if it is valid ASCII (e.g. all bytes are 127 or less).
 
-### `uint32_t capitalize_ascii(char str[])`
+### `int32_t capitalize_ascii(char str[])`
 
 Takes a UTF-8 encoded string and *changes* it in-place so that any ASCII lowercase characters `a`-`z` are changed to their uppercase versions. Leaves all other characters unchanged. It returns the number of characters updated from lowercase to uppercase.
 
-### `uint32_t codepoint_index_to_byte_index(char str[], uint32_t codepoint_index)`
+### `int32_t codepoint_index_to_byte_index(char str[], int32_t cpi)`
 
 Given a UTF-8 encoded string, and a codepoint index, return the byte index in the string where the Unicode character at the given codepoint index starts. 
 
@@ -33,7 +33,7 @@ Example:
   codepoint_index_to_byte_index("Joséph", 4) == 5;  // 4th codepoint refers character 'p'
 ```
 
-### `uint32_t bytes_of_codepoint(char str[], uint32_t codepoint_index)`
+### `int32_t bytes_of_codepoint(char str[], int32_t cpi)`
 
 Given a UTF-8 encoded string and a codepoint index, return the number of bytes that form the codepoint at the given index.
 
@@ -42,7 +42,7 @@ Example:
   bytes_of_codepoint("Joséph", 3) == 2;  // é, at codepoint_index = 3, is encoded in 2 bytes
 ```
 
-### `uint32_t codepoint_at(char str[], uint32_t codepoint_index)`
+### `uint32_t codepoint_at(char str[], int32_t cpi)`
 
 Takes a UTF-8 encoded string and a codepoint index, and returns a decimal representing the codepoint at that index.
 
@@ -51,7 +51,7 @@ Example:
   codepoint_at("Joséph", 4) == 112  // 'p' is the 4th codepoint
 ```
 
-### `uint32_t utf8_code_points(char str[])`
+### `int32_t utf8_code_points(char str[])`
 
 Takes a UTF-8 encoded string and returns the number of UTF-8 codepoints it represents.
 
@@ -60,13 +60,13 @@ Example:
   utf8_code_points("Joséph") ==  6 
 ```
 
-### `uint8_t is_animal_emoji_at(char str[], uint32_t codepoint_index)`
+### `uint8_t is_animal_emoji_at(char str[], int32_t cpi)`
 
 Takes a UTF-8 encoded string and an codepoint index, and returns if the code point at that index is an animal emoji.
 
 For simplicity for this question, we will define that that the “animal emojii” are in two ranges: from 🐀 to 🐿️ and from 🦀 to 🦮. (Yes, this technically includes things like 🐽 which are only related to or part of an animal, and excludes a few things like 🙊, 😸, which are animal faces.). You may find the [wikipedia page on Unicode emoji](https://en.wikipedia.org/wiki/List_of_emojis) helpful here.
 
-### `void utf8_substring(char str[], uint32_t start, uint32_t end, char result[])`
+### `void utf8_substring(char str[], int32_t cpi_start, int32_t cpi_end, char result[])`
 
 Takes a UTF-8 encoded string and start(inclusive) and end(exclusive) codepoint indices, and writes the substring between those indices to `result`, and includes a null terminator. Assumes that `result` has sufficient bytes of space available. (Hint: `result` will be created beforehand with a given size and passed as input here. Can any of the above functions be used to determine what the size of `result` should be?)
 
