@@ -113,7 +113,7 @@ Substring of the first 6 code points: "My 🐩’s"
 ```
 
 ## Testing
-We provide 2 basic tests in the `tests` folder which will only grade the first few lines of your output, you can use the provided bash script to run the tests in tests folder (ex: ./test_script utfanalyzer), and it will print out result in your terminal. To test the full output of your program, you can upload your PA in gradescope, there is one public test case for you to test with. 
+We provide 2 basic tests in the `tests` folder which will only check if your output contains each line in .expect file, you can use the provided bash script to run the tests in tests folder (ex: ./test_script utfanalyzer), you need to change the permission to be executable before run `test_script` script with this command `chmod u+x test_script` . Then it will print out result in your terminal. 
 
 Here are some ideas for tests you should write. They aren't necessarily comprehensive (you should design your own!) but they should get you started. For each of these kinds of strings, you should check how UTF-8 analyzer handles them:
 
