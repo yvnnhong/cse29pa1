@@ -86,13 +86,13 @@ Here's what a sample run of your program should look like:
 $ ./utf8analyzer
 Enter a UTF-8 encoded string: My 🐩’s name is Erdős.
 Valid ASCII: false
-Uppercased ASCII: "MY 🐩’S NAME IS ERDőS."
 Length in bytes: 27
 Number of code points: 21
 Bytes per code point: 1 1 1 4 3 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 1
 Code points as decimal numbers: 77 121 32 128041 8217 115 32 110 97 109 101 32 105 115 32 69 114 100 337 115 46
 Animal emojis: 🐩
 Substring of the first 6 code points: "My 🐩’s"
+Uppercased ASCII: "MY 🐩’S NAME IS ERDőS."
 ```
 
 You can also test the contents of _files_ by using the `<` operator:
@@ -103,13 +103,13 @@ My 🐩’s name is Erdős.
 $ ./utf8analyzer < utf8test.txt
 Enter a UTF-8 encoded string: 
 Valid ASCII: false
-Uppercased ASCII: "MY 🐩’S NAME IS ERDőS."
 Length in bytes: 27
 Number of code points: 21
 Bytes per code point: 1 1 1 4 3 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 1
 Code points as decimal numbers: 77 121 32 128041 8217 115 32 110 97 109 101 32 105 115 32 69 114 100 337 115 46
 Animal emojis: 🐩
 Substring of the first 6 code points: "My 🐩’s"
+Uppercased ASCII: MY 🐩’S NAME IS ERDőS.
 ```
 
 ## Testing
