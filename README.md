@@ -48,7 +48,7 @@ Takes a UTF-8 encoded string and a codepoint index, and returns a decimal repres
 
 Example:
 ```
-  codepoint_at("Joséph", 4) == 112  // 'p' is the 4th codepoint whose decimal representation is 112
+  codepoint_at("Joséph", 4) == 112  // 'p' is the 4th codepoint
 ```
 
 ### `uint32_t utf8_code_points(char str[])`
