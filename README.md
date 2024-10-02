@@ -117,6 +117,8 @@ Codepoint index 4 is byte index 5
 
 Takes a UTF-8 encoded string and start(inclusive) and end(exclusive) codepoint indices, and writes the substring between those indices to `result`, with a null terminator. Assumes that `result` has sufficient bytes of space available. (Hint: `result` will be created beforehand with a given size and passed as input here. Can any of the above functions be used to determine what the size of `result` should be?)
 
+If `start` is greater than `end` or either is negative, the function should have no effect.
+
 #### Example Usage:
 ```
 uint8_t result[10];
