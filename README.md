@@ -23,7 +23,7 @@ Takes a UTF-8 encoded string and returns if it is valid ASCII (e.g. all bytes ar
 
 Example Usage: 
 ```
-printf("Is 🔥 ASCII? %d\n", is_ascii("🔥"));`
+printf(L"Is 🔥 ASCII? %d\n", is_ascii(L"🔥"));`
 
 Is 🔥 ASCII? 0
 ```
