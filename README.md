@@ -1,18 +1,28 @@
 # PA1 - UTF-8
 
-Representing text is straightforward using ASCII: one byte per character fits well within `char*` and it represents most English text. However, there are many more than 256 characters in the text we use, from non-Latin alphabets (Cyrillic, Arabic, and Chinese character sets, etc.) to emojis and other symbols like €, to accented characters like é and ü.
+Representing text is straightforward using ASCII: one byte per character fits well within `char[]` and it represents most English text. However, there are many more than 256 characters in the text we use, from non-Latin alphabets (Cyrillic, Arabic, and Chinese character sets, etc.) to emojis and other symbols like €, to accented characters like é and ü.
 
 The [UTF-8 encoding](https://en.wikipedia.org/wiki/UTF-8#Encoding) is the default encoding of text in the majority of software today.
 If you've opened a web page, read a text message, or sent an email [in the past 15 years](https://en.wikipedia.org/wiki/UTF-8#/media/File:Unicode_Web_growth.svg) that had any special characters, the text was probably UTF-8 encoded.
 
-Not all software handles UTF-8 correctly! For example, I got a marketing email recently with a header “Take your notes further with Connectâ€‹” I'm guessing that was supposed to be an ellipsis (…), [UTF-8 encoded as the three bytes 0xE2 0x80 0xA6](https://www.compart.com/en/unicode/U+2026), and likely the software used to author the email mishandled the encoding and treated it as [three extended ASCII characters](https://en.wikipedia.org/wiki/Extended_ASCII).
+Not all software handles UTF-8 correctly! For example, Joe got a marketing email recently with a header “Take your notes further with Connectâ€‹” We're guessing that was supposed to be an ellipsis (…), [UTF-8 encoded as the three bytes 0x11100010 0x10000000 0x10100110](https://www.compart.com/en/unicode/U+2026), and likely the software used to author the email mishandled the encoding and treated it as [three extended ASCII characters](https://en.wikipedia.org/wiki/Extended_ASCII).
 
-This can cause real problems for real people. For example, people with accented letters in their names can run into issues with sign-in forms (check out Twitter/X account [@yournameisvalid](https://x.com/yournameisvalid?lang=en) for some examples). People with names best written in an alphabet other than Latin can have their names mangled in official documents, and need to have a "Latinized" version of their name for business in the US.
+This can cause serious problems for real people. For example, people with accented letters in their names can run into issues with sign-in forms (check out Twitter/X account [@yournameisvalid](https://x.com/yournameisvalid?lang=en) for some examples). People with names best written in an alphabet other than Latin can have their names mangled in official documents, and need to have a "Latinized" version of their name for business in the US. Joe had trouble [writing lecture notes](https://x.com/JoePolitz/status/1841175066845069552) because LaTeX does not support UTF-8 by default.
 
 UTF-8 bugs can and do cause security vulnerabities in products we use every day. A simple search for UTF-8 in the CVE database of security vulnerabilities turns up [hundreds of results](https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=utf-8).
 
 It's useful to get some experience with UTF-8 so you understand how it's supposed to work and can recognize when it doesn't.
 To that end, you'll write several functions that work with UTF-8 encoded text, and use them to analyze some example texts.
+
+## Milestones and Working Process
+
+The functions described below are organized into milestones; you should definitely finish the functions in a milestone set before moving onto the next.
+
+In general, you should work one function at a time, and earlier functions may be useful in implementing later functions.
+
+A good first task is to implement *only* `is_ascii` and the corresponding part of `main` needed to read input and print the result for `is_ascii`, and make sure you can test that. Then move onto `capitalize_ascii`, and so on.
+
+You can save your work by using `git` commits (if you're comfortable with that), or even just saving copies of your `.c` file when you hit important milestones. We may ask to see your work from an earlier milestone if you ask us for help on a function from a later one.
 
 ## Functions - Milestone 1
 
@@ -188,6 +198,12 @@ gcc *.c -o utfanalyzer // compiles your C code into an executable called utfanal
 ```
 Then it will print out result in your terminal. 
 
+You can see the result for a single test by using:
+
+```
+./utf8analyzer < test-file
+```
+
 Here are some other ideas for tests you should write. They aren't necessarily comprehensive (you should design your own!) but they should get you started. For each of these kinds of strings, you should check how UTF-8 analyzer handles them:
 
 - Strings with a single UTF-8 character that is 1, 2, 3, 4 bytes
@@ -201,12 +217,15 @@ Answer each of these with a few sentences or paragraphs; don't write a whole ess
 
 - Another encoding of Unicode is UTF-32, which encodes *all* Unicode code points in 4 bytes. For things like ASCII, the leading 3 bytes are all 0's. What are some tradeoffs between UTF-32 and UTF-8?
 
-- UTF-8 has a leading `10` on all the bytes past the first for multi-byte code points. This seems wasteful – if the encoding for 3 bytes were instead `1110XXXX XXXXXXXX XXXXXXXX` (where `X` can be any bit), that would fit 20 bits, which is over a million code points worth of space, removing the need for a 4-byte encoding. What are some reasons this might be useful? Can you think of anything that could go wrong with some programs if the encoding didn't include this restriction on multi-byte code points?
+- UTF-8 has a leading `10` on all the bytes past the first for multi-byte code points. This seems wasteful – if the encoding for 3 bytes were instead `1110XXXX XXXXXXXX XXXXXXXX` (where `X` can be any bit), that would fit 20 bits, which is over a million code points worth of space, removing the need for a 4-byte encoding. What are some tradeoffs or reasons the leading `10` might be useful? Can you think of anything that could go wrong with some programs if the encoding didn't include this restriction on multi-byte code points?
 
+## Resources
+
+Refer to [the policies on assignments](https://ucsd-cse29.github.io/fa24/#assignments-and-academic-integrity) for working with others or appropriate use of tools like ChatGPT or Github Copilot.
 
 ## What to Hand In
 
-- Any `.c` files you wrote (can be one file or many). We will run `gcc *.c -o utfanalyzer` to compile your code, so you should make sure it works when we do that.
+- Any `.c` files you wrote (can be one file or many; it's totally reasonable to only have one). We will run `gcc *.c -o utfanalyzer` to compile your code, so you should make sure it works when we do that.
 - A file `DESIGN.md` (with exactly that name) containing the answers to the design questions
 - Your tests with expected output in files `tests/*.txt`, `tests/*.txt.expect`
 
