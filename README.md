@@ -66,7 +66,7 @@ printf("Width: %d bytes\n", width_from_start_byte(s[1])); // start byte 0xC3 ind
 === Output ===
 Width: 2 bytes
 
-printf("Width: %d bytes\n", width_from_start_byte(s[2])); // start byte 0xA9 is an invalid start byte
+printf("Width: %d bytes\n", width_from_start_byte(s[2])); // start byte 0xA9 is a continuation byte, not a start byte
 
 === Output ===
 Width: -1
