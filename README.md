@@ -14,7 +14,12 @@ UTF-8 bugs can and do cause security vulnerabities in products we use every day.
 It's useful to get some experience with UTF-8 so you understand how it's supposed to work and can recognize when it doesn't.
 To that end, you'll write several functions that work with UTF-8 encoded text, and use them to analyze some example texts.
 
+## Getting Started
+
+To get started, visit the [Github Classroom](https://classroom.github.com/a/Op6LmSos) assignment link. Select your username from the list (or if you don't see it, you can skip and use your Github username). A repository will be created for you to use to to your work. You can do your programming however you like; a Codespace will keep you in the environment we are using in class and lab.
+
 ## Milestones, Working Process, and Definitions
+
 
 The functions described below are organized into milestones; you should definitely finish the functions in a milestone set before moving onto the next.
 
