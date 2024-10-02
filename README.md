@@ -51,10 +51,12 @@ Characters updated: 4
 
 Given the start byte of a UTF-8 sequence, return how many bytes it indicates the sequence will take (start byte + continuation bytes).
 
-Example:
+#### Example Usage:
 ```
   char s[] = "Héy"; // same as { 'H', 0xC3, 0xA9, 'y', 0 },   é is start byte + 1 cont. byte
-  width_from_start_byte(s[1]) == 2; // start byte 0xC3 indicates 2-byte sequence
+  printf("Width: %d bytes\n", width_from_start_byte(s[1])); // start byte 0xC3 indicates 2-byte sequence
+
+   Width: 2 bytes
 ```
 
 ### `int32_t utf8_strlen(char str[])`
