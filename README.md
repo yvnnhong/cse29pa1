@@ -38,10 +38,12 @@ Takes a UTF-8 encoded string and *changes* it in-place so that any ASCII lowerca
 
 #### Example Usage: 
 ```
+int32_t ret = 0;
 char str[] = "abcd";
 capitalize_ascii(str);
-printf("Characters updated: %d\n", capitalize_ascii(str));`
+printf("Capitalized String: %s\n Characters updated: %d\n", str, ret);`
 
+Capitalized String: ABCD
 Characters updated: 4
 ```
 
