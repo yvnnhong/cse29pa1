@@ -25,12 +25,12 @@ Takes a UTF-8 encoded string and returns if it is valid ASCII (e.g. all bytes ar
 ```
 printf("Is 🔥 ASCII? %d\n", is_ascii("🔥"));
 
-Output:
+=== Output ===
 Is 🔥 ASCII? 0
 
 printf("Is abcd ASCII? %d\n", is_ascii("abcd"));
 
-Output:
+=== Output ===
 Is abcd ASCII? 1
 ```
 
@@ -44,7 +44,8 @@ int32_t ret = 0;
 char str[] = "abcd";
 capitalize_ascii(str);
 printf("Capitalized String: %s\n Characters updated: %d\n", str, ret);`
-------------------------
+
+=== Output ===
 Capitalized String: ABCD
 Characters updated: 4
 ```
