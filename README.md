@@ -76,6 +76,8 @@ Width: -1
 
 Takes a UTF-8 encoded string and returns the number of UTF-8 codepoints it represents.
 
+Returns -1 if there are any errors encountered in processing the UTF-8 string.
+
 #### Example Usage:
 ```
 char str[] = "Joséph";
@@ -89,10 +91,16 @@ Length of string Joséph is 6
 
 Given a UTF-8 encoded string, and a codepoint index, return the byte index in the string where the Unicode character at the given codepoint index starts. 
 
+Returns -1 if there are any errors encountered in processing the UTF-8 string.
+
 Example: 
 ```
 char str[] = "Joséph";
-printf("Cocodepoint_index_to_byte_index("Joséph", 4) == 5;  // 4th codepoint refers character 'p'
+int32_t idx = 4;
+printf("Codepoint index %d is byte index %d\n", idx, codepoint_index_to_byte_index("Joséph", idx));
+
+=== Output ===
+Codepoint index 4 is byte index 5
 ```
 
 ### `void utf8_substring(char str[], int32_t cpi_start, int32_t cpi_end, char result[])`
