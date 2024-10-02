@@ -69,9 +69,13 @@ Width: 2 bytes
 
 Takes a UTF-8 encoded string and returns the number of UTF-8 codepoints it represents.
 
-Example:
+#### Example Usage:
 ```
-  utf8_strlen("Joséph") ==  6;  // 6 codepoints, (even though 7 bytes)
+char str[] = "Joséph";
+printf("Length of string %s is %d\n", str, utf8_strlen(str));  // 6 codepoints, (even though 7 bytes)
+
+=== Output ===
+Length of string Joséph is 6
 ```
 
 ### `int32_t codepoint_index_to_byte_index(char str[], int32_t cpi)`
