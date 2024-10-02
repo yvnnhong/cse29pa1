@@ -21,6 +21,13 @@ To that end, you'll write several functions that work with UTF-8 encoded text, a
 
 Takes a UTF-8 encoded string and returns if it is valid ASCII (e.g. all bytes are 127 or less).
 
+Example Usage: 
+```
+printf("Is 🔥 ASCII? %d\n", is_ascii("🔥"));`
+
+Is 🔥 ASCII? 0
+```
+
 ### `int32_t capitalize_ascii(char str[])`
 
 Takes a UTF-8 encoded string and *changes* it in-place so that any ASCII lowercase characters `a`-`z` are changed to their uppercase versions. Leaves all other characters unchanged. It returns the number of characters updated from lowercase to uppercase.
