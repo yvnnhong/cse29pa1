@@ -17,7 +17,7 @@ To that end, you'll write several functions that work with UTF-8 encoded text, a
 ## Functions - Milestone 1
 
 
-### `uint8_t is_ascii(char str[])`
+### `uint8_t is_ascii(uint8_t str[])`
 
 Takes a UTF-8 encoded string and returns if it is valid ASCII (e.g. all bytes are 127 or less).
 
@@ -34,16 +34,16 @@ printf("Is abcd ASCII? %d\n", is_ascii("abcd"));
 Is abcd ASCII? 1
 ```
 
-### `int32_t capitalize_ascii(char str[])`
+### `int32_t capitalize_ascii(uint8_t str[])`
 
 Takes a UTF-8 encoded string and *changes* it in-place so that any ASCII lowercase characters `a`-`z` are changed to their uppercase versions. Leaves all other characters unchanged. It returns the number of characters updated from lowercase to uppercase.
 
 #### Example Usage: 
 ```
 int32_t ret = 0;
-char str[] = "abcd";
+uint8_t str[] = "abcd";
 capitalize_ascii(str);
-printf("Capitalized String: %s\n Characters updated: %d\n", str, ret);`
+printf("Capitalized String: %s\nCharacters updated: %d\n", str, ret);`
 
 === Output ===
 Capitalized String: ABCD
@@ -52,7 +52,7 @@ Characters updated: 4
 
 ## Functions - Milestone 2
 
-### `int32_t width_from_start_byte(char start_byte)`
+### `int32_t width_from_start_byte(uint8_t start_byte)`
 
 Given the start byte of a UTF-8 sequence, return how many bytes it indicates the sequence will take (start byte + continuation bytes).
 
@@ -60,7 +60,7 @@ Returns 1 for ASCII characters, and -1 if byte is not a valid start byte.
 
 #### Example Usage:
 ```
-char s[] = "Héy"; // same as { 'H', 0xC3, 0xA9, 'y', 0 },   é is start byte + 1 cont. byte
+uint8_t s[] = "Héy"; // same as { 'H', 0xC3, 0xA9, 'y', 0 },   é is start byte + 1 cont. byte
 printf("Width: %d bytes\n", width_from_start_byte(s[1])); // start byte 0xC3 indicates 2-byte sequence
 
 === Output ===
@@ -72,7 +72,7 @@ printf("Width: %d bytes\n", width_from_start_byte(s[2])); // start byte 0xA9 is 
 Width: -1
 ```
 
-### `int32_t utf8_strlen(char str[])`
+### `int32_t utf8_strlen(uint8_t str[])`
 
 Takes a UTF-8 encoded string and returns the number of UTF-8 codepoints it represents.
 
@@ -80,14 +80,14 @@ Returns -1 if there are any errors encountered in processing the UTF-8 string.
 
 #### Example Usage:
 ```
-char str[] = "Joséph";
+uint8_t str[] = "Joséph";
 printf("Length of string %s is %d\n", str, utf8_strlen(str));  // 6 codepoints, (even though 7 bytes)
 
 === Output ===
 Length of string Joséph is 6
 ```
 
-### `int32_t codepoint_index_to_byte_index(char str[], int32_t cpi)`
+### `int32_t codepoint_index_to_byte_index(uint8_t str[], int32_t cpi)`
 
 Given a UTF-8 encoded string, and a codepoint index, return the byte index in the string where the Unicode character at the given codepoint index starts. 
 
@@ -95,7 +95,7 @@ Returns -1 if there are any errors encountered in processing the UTF-8 string.
 
 Example: 
 ```
-char str[] = "Joséph";
+uint8_t str[] = "Joséph";
 int32_t idx = 4;
 printf("Codepoint index %d is byte index %d\n", idx, codepoint_index_to_byte_index("Joséph", idx));
 
@@ -103,21 +103,26 @@ printf("Codepoint index %d is byte index %d\n", idx, codepoint_index_to_byte_ind
 Codepoint index 4 is byte index 5
 ```
 
-### `void utf8_substring(char str[], int32_t cpi_start, int32_t cpi_end, char result[])`
+### `void utf8_substring(uint8_t str[], int32_t cpi_start, int32_t cpi_end, uint8_t result[])`
 
 Takes a UTF-8 encoded string and start(inclusive) and end(exclusive) codepoint indices, and writes the substring between those indices to `result`, with a null terminator. Assumes that `result` has sufficient bytes of space available. (Hint: `result` will be created beforehand with a given size and passed as input here. Can any of the above functions be used to determine what the size of `result` should be?)
 
 Example:
 ```
-  utf8_substring("🦀🦮🦮🦀🦀🦮🦮", 3, 7, result) // these emoji are 4 bytes long
-  result == 🦀🦀🦮🦮
+uint8_t result[10];
+utf8_substring("🦀🦮🦮🦀🦀🦮🦮", 3, 7, result)
+printf("String: %s\nSubstring: %s", result); // these emoji are 4 bytes long
+
+=== Output ===
+String: 🦀🦮🦮🦀🦀🦮🦮
+Substring: 🦀🦀🦮🦮
 ```
 
 ## Functions - Milestone 3
 
 
 
-### `uint32_t codepoint_at(char str[], int32_t cpi)`
+### `uint32_t codepoint_at(uint8_t str[], int32_t cpi)`
 
 Takes a UTF-8 encoded string and a codepoint index, and returns a decimal representing the codepoint at that index.
 
@@ -126,7 +131,7 @@ Example:
   codepoint_at("Joséph", 4) == 112  // 'p' is the 4th codepoint
 ```
 
-### `uint8_t is_animal_emoji_at(char str[], int32_t cpi)`
+### `uint8_t is_animal_emoji_at(uint8_t str[], int32_t cpi)`
 
 Takes a UTF-8 encoded string and an codepoint index, and returns if the code point at that index is an animal emoji.
 
