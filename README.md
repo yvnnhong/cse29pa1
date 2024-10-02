@@ -21,7 +21,7 @@ To that end, you'll write several functions that work with UTF-8 encoded text, a
 
 Takes a UTF-8 encoded string and returns if it is valid ASCII (e.g. all bytes are 127 or less).
 
-Example Usage: 
+#### Example Usage: 
 ```
 printf("Is 🔥 ASCII? %d\n", is_ascii("🔥"));`
 
