@@ -228,9 +228,11 @@ Answer each of these with a few sentences or paragraphs; don't write a whole ess
 
 - UTF-8 has a leading `10` on all the bytes past the first for multi-byte code points. This seems wasteful – if the encoding for 3 bytes were instead `1110XXXX XXXXXXXX XXXXXXXX` (where `X` can be any bit), that would fit 20 bits, which is over a million code points worth of space, removing the need for a 4-byte encoding. What are some tradeoffs or reasons the leading `10` might be useful? Can you think of anything that could go wrong with some programs if the encoding didn't include this restriction on multi-byte code points?
 
-## Resources
+## Resources and Policy
 
 Refer to [the policies on assignments](https://ucsd-cse29.github.io/fa24/#assignments-and-academic-integrity) for working with others or appropriate use of tools like ChatGPT or Github Copilot.
+
+You can use any code from class, lab, or discussion in your work.
 
 ## What to Hand In
 
