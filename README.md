@@ -26,7 +26,7 @@ You can and should save your work by using `git` commits (if you're comfortable 
 
 Some reminders and information about the function signatures:
 
-- `uint8_t` is a 8-bit (1-byte) value that, for our purposes, is exactly the same as a `char`. It's useful because it prints better (with `%d` formatting) and it's explicit about its meaning. It also has a better interpretation – `char` can be “negative”, but the `u` in `uint` means “unsigned”, which is a better fit for the programming in this PA.
+- `uint8_t` is a 8-bit (1-byte) value that, for our purposes, is nearly the same as a `char`, but better. It's useful because it prints better (with `%d` formatting) and it's explicit about its meaning. It also has a better interpretation – `char` can be “negative”, but the `u` in `uint` means “unsigned”, which is a better fit for the programming in this PA.
 - `int32_t` is a 32-bit (4-byte) integer. You can think of it like `int` in Java, we just want to be explicit about sizes of things when we program in C, and `int` can mean different things on different systems.
 - We use `cpi` as an abbreviation in some variable names, it stands for “code point index”.
 - We use `bi` as an abbreviation in some variable names, it stands for “byte index”.
