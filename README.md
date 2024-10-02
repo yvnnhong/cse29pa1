@@ -26,6 +26,10 @@ Example Usage:
 printf("Is 🔥 ASCII? %d\n", is_ascii("🔥"));`
 
 Is 🔥 ASCII? 0
+
+printf("Is abcd ASCII? %d\n", is_ascii("abcd"));`
+
+Is abcd ASCII? 1
 ```
 
 ### `int32_t capitalize_ascii(char str[])`
