@@ -38,9 +38,11 @@ Takes a UTF-8 encoded string and *changes* it in-place so that any ASCII lowerca
 
 #### Example Usage: 
 ```
-printf("%s\n", capitalize_ascii("abcd"));`
+char str[] = "abcd";
+capitalize_ascii(str);
+printf("Characters updated: %d\n", capitalize_ascii(str));`
 
-ABCD
+Characters updated: 4
 ```
 
 ## Functions - Milestone 2
