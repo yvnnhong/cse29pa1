@@ -41,6 +41,7 @@ for TEST_FILE in $TEST_DIR/*.txt; do
         if [ "$PASS" = true ]; then
             echo "Test $TEST_FILE passed."
         fi
+        echo ""
     else
         echo "No solution file found for $TEST_FILE (expecting $SOLUTION_FILE)."
     fi
