@@ -93,7 +93,7 @@ Given a UTF-8 encoded string, and a codepoint index, return the byte index in th
 
 Returns -1 if there are any errors encountered in processing the UTF-8 string.
 
-Example: 
+#### Example Usage: 
 ```
 uint8_t str[] = "Joséph";
 int32_t idx = 4;
@@ -107,7 +107,7 @@ Codepoint index 4 is byte index 5
 
 Takes a UTF-8 encoded string and start(inclusive) and end(exclusive) codepoint indices, and writes the substring between those indices to `result`, with a null terminator. Assumes that `result` has sufficient bytes of space available. (Hint: `result` will be created beforehand with a given size and passed as input here. Can any of the above functions be used to determine what the size of `result` should be?)
 
-Example:
+#### Example Usage:
 ```
 uint8_t result[10];
 utf8_substring("🦀🦮🦮🦀🦀🦮🦮", 3, 7, result)
@@ -126,9 +126,14 @@ Substring: 🦀🦀🦮🦮
 
 Takes a UTF-8 encoded string and a codepoint index, and returns a decimal representing the codepoint at that index.
 
-Example:
+#### Example Usage:
 ```
-  codepoint_at("Joséph", 4) == 112  // 'p' is the 4th codepoint
+char str[] = "Joséph";
+uint32_t idx = 4;
+printf("Codepoint at %d in %s is %d\n", idx, str, codepoint_at(str, idx)); // 'p' is the 4th codepoint
+
+=== Output ===
+Codepoint at 4 in Joséph is 112
 ```
 
 ### `uint8_t is_animal_emoji_at(uint8_t str[], int32_t cpi)`
@@ -143,7 +148,7 @@ For simplicity for this question, we will define that that the “animal emojii�
 
 You'll also write a program that reads UTF-8 input and prints out some information about it.
 
-Here's what a sample run of your program should look like:
+Here's what the output of a sample run of your program should look like:
 
 ```
 $ ./utf8analyzer
