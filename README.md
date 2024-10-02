@@ -56,6 +56,8 @@ Characters updated: 4
 
 Given the start byte of a UTF-8 sequence, return how many bytes it indicates the sequence will take (start byte + continuation bytes).
 
+Returns 1 for ASCII characters, and -1 if byte is not a valid start byte.
+
 #### Example Usage:
 ```
 char s[] = "Héy"; // same as { 'H', 0xC3, 0xA9, 'y', 0 },   é is start byte + 1 cont. byte
@@ -63,6 +65,11 @@ printf("Width: %d bytes\n", width_from_start_byte(s[1])); // start byte 0xC3 ind
 
 === Output ===
 Width: 2 bytes
+
+printf("Width: %d bytes\n", width_from_start_byte(s[2])); // start byte 0xA9 is an invalid start byte
+
+=== Output ===
+Width: -1
 ```
 
 ### `int32_t utf8_strlen(char str[])`
@@ -84,7 +91,8 @@ Given a UTF-8 encoded string, and a codepoint index, return the byte index in th
 
 Example: 
 ```
-  codepoint_index_to_byte_index("Joséph", 4) == 5;  // 4th codepoint refers character 'p'
+char str[] = "Joséph";
+printf("Cocodepoint_index_to_byte_index("Joséph", 4) == 5;  // 4th codepoint refers character 'p'
 ```
 
 ### `void utf8_substring(char str[], int32_t cpi_start, int32_t cpi_end, char result[])`
