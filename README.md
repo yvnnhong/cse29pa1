@@ -36,6 +36,12 @@ Is abcd ASCII? 1
 
 Takes a UTF-8 encoded string and *changes* it in-place so that any ASCII lowercase characters `a`-`z` are changed to their uppercase versions. Leaves all other characters unchanged. It returns the number of characters updated from lowercase to uppercase.
 
+#### Example Usage: 
+```
+printf("%s\n", capitalize_ascii("abcd"));`
+
+ABCD
+```
 
 ## Functions - Milestone 2
 
