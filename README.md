@@ -63,7 +63,7 @@ Takes a UTF-8 encoded string and *changes* it in-place so that any ASCII lowerca
 ```
 int32_t ret = 0;
 char str[] = "abcd";
-capitalize_ascii(str);
+ret = capitalize_ascii(str);
 printf("Capitalized String: %s\nCharacters updated: %d\n", str, ret);`
 
 === Output ===
