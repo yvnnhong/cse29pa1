@@ -132,7 +132,7 @@ If `cpi_start` is greater than `cpi_end` or either is negative, the function sho
 
 #### Example Usage:
 ```
-char result[10];
+char result[17];
 utf8_substring("🦀🦮🦮🦀🦀🦮🦮", 3, 7, result)
 printf("String: %s\nSubstring: %s", result); // these emoji are 4 bytes long
 
