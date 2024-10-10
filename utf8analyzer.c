@@ -10,6 +10,7 @@ int32_t utf8_strlen(char str[]);
 int32_t width_from_start_byte(char start_byte);
 int32_t codepoint_at(char str[], int32_t cpi);
 char is_animal_emoji_at(char str[], int32_t cpi);
+int32_t codepoint_index_to_byte_index(char str[], int32_t cpi);
 
 void print_bytes_per_codepoint(char str[]) {
     for (int i = 0; str[i] != '\0';) {
@@ -75,14 +76,20 @@ int main() {
     }
     printf("\n");
 
-    // Check for animal emojis
-    printf("Animal emojis: ");
-    for (int i = 0; i < num_codepoints; i++) {
-        if (is_animal_emoji_at(input, i)) {
-            printf("%c ", codepoint_at(input, i)); // Use codepoint_at to print the emoji character
-        }
-    }
-    printf("\n");
+// Check for animal emojis
+printf("Animal emojis: ");
+for (int i = 0; i < num_codepoints; i++) {
+    if (is_animal_emoji_at(input, i)) {
+        // Retrieve the starting byte index for the codepoint
+        int32_t byte_index = codepoint_index_to_byte_index(input, i);
+        int32_t bytes = width_from_start_byte(input[byte_index]);
 
-    return 0;
+        // Print the emoji using the byte sequence
+        for (int j = 0; j < bytes; j++) {
+            printf("%c", input[byte_index + j]);
+        }
+        printf(" "); // Space after each emoji
+    }
+}
+printf("\n");
 }

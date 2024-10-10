@@ -3,7 +3,7 @@
 #include <string.h>
 
 //HOW TO COMPILE MY CODE IN VSCODE: 
-//gcc milestone1.c milestone2.c milestone3.c utf8analyzer.c tests.c -o utf8analyzer_tests
+//gcc milestone1.c milestone2.c milestone3.c utf8analyzer.c tests.c 
 //or just do the thingy with the a 
 
 int32_t width_from_start_byte(char start_byte);

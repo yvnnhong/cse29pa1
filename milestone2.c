@@ -3,7 +3,7 @@
 #include <string.h>
 
 //HOW TO COMPILE MY CODE IN VSCODE: 
-//gcc milestone1.c milestone2.c milestone3.c utf8analyzer.c tests.c -o utf8analyzer_tests
+//gcc milestone1.c milestone2.c milestone3.c utf8analyzer.c
 //or just do the thingy with the a 
 
 //note: UTF stands for Unicode Transformation Format-8
